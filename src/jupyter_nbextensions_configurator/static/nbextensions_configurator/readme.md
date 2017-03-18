@@ -6,7 +6,6 @@ Jupyter Nbextensions Configurator
 <br/>
 [![Travis-CI Build Status](https://img.shields.io/travis/Jupyter-contrib/jupyter_nbextensions_configurator.svg?maxAge=3600&label=Travis)](https://travis-ci.org/Jupyter-contrib/jupyter_nbextensions_configurator)
 [![Appveyor Build status](https://img.shields.io/appveyor/ci/jcb91/jupyter-nbextensions-configurator-ixdb9.svg?maxAge=3600&label=Appveyor)](https://ci.appveyor.com/project/jcb91/jupyter-nbextensions-configurator-ixdb9)
-<br/>
 [![Coveralls python test coverage](https://img.shields.io/coveralls/Jupyter-contrib/jupyter_nbextensions_configurator/master.svg?maxAge=3600&label=Coveralls)](https://coveralls.io/github/Jupyter-contrib/jupyter_nbextensions_configurator)
 [![Codecov python test coverage](https://img.shields.io/codecov/c/github/Jupyter-contrib/jupyter_nbextensions_configurator/master.svg?maxAge=3600&label=Codecov)](https://codecov.io/gh/Jupyter-contrib/jupyter_nbextensions_configurator)
 <br/>
@@ -20,10 +19,10 @@ which provides configuration interfaces for notebook extensions (nbextensions).
 
 The `jupyter_nbextensions_configurator` jupyter server extension provides
 graphical user interfaces for configuring which nbextensions are enabled
-(load automatically for every notebook), and display their readme files.
+(load automatically for every notebook).
 In addition, for nbextensions which include an appropriate yaml descriptor file
-(see below), the interface also provides controls to configure the
-nbextensions' options.
+(see below), the interface also renders their markdown readme files, and
+provides controls to configure the nbextensions' options.
 
 This project was spun out of work from
 [`ipython-contrib/IPython-notebook-extensions`][contrib repo url].
@@ -120,7 +119,8 @@ The case-sensitive keys in the yaml file are as follows:
    * `input_type`,    controls the type of html tag used to render the parameter in the configurator UI. Valid values include `text`, `textarea`, `checkbox`, [html5 input tags such as `number`, `url`, `color`, ...], plus a final type of `list`
    * `list_element`,  a dictionary with the same `default` and `input_type` keys as a `Parameters` entry, used to render each element of the list for parameters with input_type `list`
    * finally, extras such as `min`, `step` and `max` may be used by `number` tags for validation
-* `tags`,             a list of string tags describing the nbextension, to allow for filtering
+ * `ParametersSection`, which config section the nbextension parameters are stored in (if unspecified, the value of `Section` is used).
+ * `tags`,             a list of string tags describing the nbextension, used as keywords for filtering, in addition to the name and description.
 
 Example:
 

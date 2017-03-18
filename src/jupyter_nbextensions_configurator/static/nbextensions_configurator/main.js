@@ -743,7 +743,7 @@ define([
     function reset_params (extension) {
         // first remove config values:
         return conf_dot_delete_keys(
-            configs[extension.Section],
+            configs[extension.ParametersSection],
             extension.Parameters.map(function (param) {
                 return param.name;
             })
@@ -957,7 +957,7 @@ define([
             // Parameters
             if (extension.Parameters.length > 0) {
                 for (var ii = 0; ii < extension.Parameters.length; ii++) {
-                    extension.Parameters[ii].section = extension.Section;
+                    extension.Parameters[ii].section = extension.ParametersSection;
                 }
                 var reset_control = $('<a/>')
                     .on('click', reset_params_callback)

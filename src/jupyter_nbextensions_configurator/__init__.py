@@ -76,6 +76,7 @@ def get_configurable_nbextensions(
                     continue
                 extension.setdefault('Compatibility', '?.x')
                 extension.setdefault('Section', 'notebook')
+                extension.setdefault('ParametersSection', extension['Section'])
 
                 # generate relative URLs within the nbextensions namespace,
                 # from urls relative to the yaml file
